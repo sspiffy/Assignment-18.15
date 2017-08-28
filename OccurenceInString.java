@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class OccurenceInString
 {
     //instance variables
@@ -5,9 +7,10 @@ public class OccurenceInString
 
     public static int count(String s, char a)
     {
-        charCounter=0;
+        charCounter = 0;
         return count(s, a, s.length() - 1);
     }
+
     public static int count(String s, char a, int high)
     {
 
@@ -17,28 +20,31 @@ public class OccurenceInString
             {
                 charCounter++;
                 return charCounter;
-            }
-            else
+            } else
             {
                 return charCounter;
             }
-        }
-        else
+        } else
         {
             if (s.charAt(high) == a)
             {
                 charCounter++;
-                return count(s, a, high-1);
-            }
-            else
+                return count(s, a, high - 1);
+            } else
             {
-                return count(s, a, high-1);
+                return count(s, a, high - 1);
             }
         }
     }
 
+
+
     public static void main(String[] args)
     {
+
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("This program counts the number of occurrences of a character in a string. Sample input and output is as follows:");
         System.out.println("Count the occurrence of the letter 'g' in the string 'We are winning'");
         System.out.println("Number of occurrences of the letter 'g': " + count("We are winning", 'g'));
 
@@ -47,6 +53,15 @@ public class OccurenceInString
 
         System.out.println("Count the occurrence of the letter 'g' in the string 'This is a test'");
         System.out.println("Number of occurrences of the letter 'g': " + count("This is a test", 'g'));
+
+        System.out.println("Please enter a test string...");
+        String s = keyboard.nextLine();
+        System.out.println("Now, enter the character you want to count occurrences of within your string...");
+        char a = keyboard.next().charAt(0);
+
+
+        System.out.println("Number of occurrences of the letter " + a + ": "+ count(s,a));
+
     }
 }
 
